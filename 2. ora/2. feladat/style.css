@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.menusor {
+    background-color: purple;
+    width: 100vw;
+    height: 50px;
+    display: flex;
+}
+
+.button {
+    background-color: cyan;
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.button:first-child {
+    margin-left: 50px;
+}
+
+.page {
+    display: flex;
+    height: calc(100vh - 50px - 50px);
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.sarga {
+    background-color: yellow;
+    width: calc(200% - 40px);
+    order: 2;
+    margin: 10px 10px 10px 5px;
+}
+
+.zold {
+    background-color: green;
+    width: calc(100% - 40px);
+    order: 1;
+    margin: 10px 5px 10px 10px;
+}
+
+.footer {
+    width: calc(100% - 40px);
+    margin: auto;
+    margin-bottom: 5px;
+    background-color: grey;
+    height: 45px;
+}
