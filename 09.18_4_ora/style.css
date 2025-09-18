@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  border: 0;
+}
+
+.container>div {
+  width: 100px;
+  height: 20px;
+  margin-top: 5px;
+}
+.container {
+  width: 100vw;
+  height: 20vh;
+  background-color: grey;
+  margin-top: 0;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <input type="email" placeholder="email" id="email" />
+      </div>
+      <div>
+        <input type="password" placeholder="password" id="password" />
+      </div>
+      <div>
+        <input
+          type="password"
+          placeholder="password-again"
+          id="password-again"
+        />
+      </div>
+      <button id="button">BUTTON ANYA</button>
+    </div>
+
+    <script>
+      let btn = document.getElementById("button");
+
+      btn.addEventListener("click", () => {
+        let email = document.getElementById("email").value.trim();
+        let password = document.getElementById("password").value;
+        let password_again = document.getElementById("password-again").value;
+
+        if (!email.includes("@") || !email.includes(".")) {
+          alert("Az email nem megfelelő formátumú!");
+          return;
+        }
+
+        let lastDot = email.lastIndexOf(".");
+        let charsAfterDot = email.length - (lastDot + 1);
+
+        console.log("Karakterek száma a pont után:", charsAfterDot);
+
+        if (password !== password_again) {
+          alert("Nem egyezik meg a két jelszó!");
+          return;
+        }
+
+        alert("Sikeres regisztráció!");
+      });
+    </script>
+  </body>
+</html>
