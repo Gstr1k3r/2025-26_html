@@ -3,14 +3,48 @@
   border: 0;
 }
 
-.container>div {
-  width: 100px;
-  height: 20px;
-  margin-top: 5px;
-}
 .container {
   width: 100vw;
   height: 20vh;
   background-color: grey;
-  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#email {
+  width: 200px;
+  height: 20px;
+  border: 2px black solid;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+#password {
+  width: 200px;
+  height: 20px;
+  border: 2px black solid;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+#password-again {
+  width: 200px;
+  height: 20px;
+  border: 2px black solid;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+#button {
+  width: 100px;
+  height: 50px;
+  border: 2px black solid;
+  margin-top: 10px;
+  border-radius: 6px;
+}
+
+#button:hover {
+  cursor: grab;
 }
