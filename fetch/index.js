@@ -1,6 +1,6 @@
     const idInput = document.getElementById("number");
     const btn = document.getElementById("btn");
-    const userData = document.getElementById("userData");
+    const userData = document.getElementById("phoneData");
 
     btn.addEventListener("click", () => {
       if (idInput.value < 1 || idInput.value > 10) {
@@ -11,44 +11,28 @@
 
       userData.innerHTML = "Betöltés...";
 
-      fetch(`https://jsonplaceholder.typicode.com/users/${idInput.value}`)
+      fetch(`https://surveys-5jvt.onrender.com/api/phones/${idInput.value}`)
         .then((response) => {
           if (!response.ok) {
             throw new Error("Network response was not ok");
           }
           return response.json();
         })
-        .then((user) => {
-                console.log("ID:", user.id);
-                console.log("Név:", user.name);
-                console.log("Felhasználónév:", user.username);
-                console.log("Email:", user.email);
-                console.log("Telefon:", user.phone);
-                console.log("Weboldal:", user.website);
-                console.log("Cím:", user.address);
-                console.log("Geolokáció:", user.address.geo);
-                console.log("Cégadatok:", user.company);
+        .then((phone) => {
+                console.log("ID:", phone.id);
+                console.log("Márka:", phone.brand);
+                console.log("Modell:", phone.model);
+                console.log("NFC-képes?:", phone.nfc);
+                console.log("Kamera:", phone.camera);
 
           userData.innerHTML = `
-            <h2>${user.name}</h2>
+            <h2>${phone.model.toLowerCase().includes(phone.brand.toLowerCase()) ? phone.model : phone.brand + " " + phone.model}</h2>
 
-            <p>ID: ${user.id}</p>
-            <p>Email: ${user.email}</p>
-            <p>Telefon: ${user.phone}</p>
-            <p>Weboldal: ${user.website}</p>
-
-            <h3>Cím</h3>
-            <p>${user.address.zipcode} ${user.address.city}</p>
-            <p>${user.address.street} ${user.address.suite}</p>
-
-            <h3>Geolokáció</h3>
-            <p>Latitude: ${user.address.geo.lat}</p>
-            <p>Longitude: ${user.address.geo.lng}</p>
-
-            <h3>Cég</h3>
-            <p>Név: ${user.company.name}</p>
-            <p>Szlogen: ${user.company.catchPhrase}</p>
-            <p>Tevékenység: ${user.company.bs}</p>
+            <p>ID: ${phone.id}</p>
+            <p>Márka: ${phone.brand}</p>
+            <p>Modell: ${phone.model}</p>
+            <p>NFC-képes? ${phone.nfc ? "Igen" : "Nem"}</p>
+            <p>Kamera: ${phone.camera}MPx</p>
           `;
         })
         .catch((error) => {
